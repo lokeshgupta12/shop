@@ -7,7 +7,9 @@ mat-grid-tile {
   max-width: 500px;
   width: 100%;
 }
-
+.addcrtBtn{
+background-color: indianred;
+}
 
 .example-container {
   display: flex;

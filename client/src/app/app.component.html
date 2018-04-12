@@ -5,7 +5,7 @@
     <button *ngIf="authService.loggedIn()" routerLink="/home" mat-button>Home</button>
     <button *ngIf="!authService.loggedIn()" routerLink="/login" mat-button>Login</button>
     <button *ngIf="authService.loggedIn()" (click)="onClickLogout()" mat-button>LogOut</button>
-    <button *ngIf="authService.loggedIn()" routerLink="/cart" mat-button>Cart</button>
+    <button *ngIf="authService.loggedIn()" routerLink="/cart" mat-button> Cart ({{cartItems.length}})</button>
   </mat-toolbar-row>
 </mat-toolbar>
 <router-outlet></router-outlet>

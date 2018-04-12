@@ -35,13 +35,28 @@ return tokenNotExpired();
 
 }
 
-  getAllProduct(){
- return this.http.get(this.domain + 'authentication/getAllProduct/'  ).map(res=>res.json());
-  }
+      getAllProduct(){
+         return this.http.get(this.domain + 'authentication/getAllProduct/'  ).map(res=>res.json());
+      }
 
       login(user){  
-  return  this.http.post(this.domain + 'authentication/login' , user).map((res : any) => res.json())
+        return  this.http.post(this.domain + 'authentication/login' , user).map((res : any) => res.json())
   }
+      addedTocartItem(cartItem){  
+          return  this.http.post(this.domain + 'authentication/addToCart' , cartItem).map((res : any) => res.json())
+      }
+
+      getCartItems(){
+         return this.http.get(this.domain + 'authentication/getAddedCartItem/'  ).map(res=>res.json());
+      }
+    
+     deleteItemFromCart(id){
+         return this.http.delete(this.domain + 'authentication/deleteItem/'+ id ).map(res=>res.json());
+
+     }
+        paymentItem(item){  
+          return  this.http.post(this.domain + 'authentication/paymentItem' , item).map((res : any) => res.json())
+      }
 
 
 logout(){

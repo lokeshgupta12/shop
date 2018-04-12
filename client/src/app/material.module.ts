@@ -87,7 +87,8 @@ import { MatButtonModule ,MatCheckboxModule ,MatCardModule,MatInputModule, MatAu
   MatTableModule,
   MatTabsModule,
   MatToolbarModule,
-  MatTooltipModule],
+  MatTooltipModule]
+  
 
  })
  export class MaterialModule{

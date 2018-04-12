@@ -1,0 +1,12 @@
+img.imageClass {
+    width: 148.84px;
+    height: 148.84px;
+    float: right;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.checkbtn{
+	background-color: mediumseagreen;
+    color: white;
+
+}

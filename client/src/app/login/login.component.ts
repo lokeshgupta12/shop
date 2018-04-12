@@ -38,21 +38,14 @@ onLoginSubmit(){
               email : this.form.get('email').value ,
              password : this.form.get('password').value 
         }
-
-       // var auth = this.authService.login(user)
-       // console.log(auth,"ghmjghjm")
         this.authService.login(user).subscribe(data=>{
-        	console.log(data,"as")
         	if(!data.success){
         		this.messageClass = 'alert alert-danger';
                 this.message = data.message;
-                // this.processing= false;
-                // this.enabledForm();
         	}
         	else{
         		this.messageClass = 'alert alert-success';
                 this.message = data.message;
-                // this.processing= true;
                                 setTimeout(()=>{
                    this.router.navigate(['/home']);
                         

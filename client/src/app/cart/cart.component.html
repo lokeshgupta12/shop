@@ -1,18 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Blogger</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="true" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-<!--   <div class="navbar-collapse collapse show" id="navbarColor01" style="">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item " *ngIf="authService.loggedIn()" [routerLinkActive]='[active]' [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/dashboard"><span class="glyphicon glyphicon-dashboard "></span> Dashboard</a></li>
-      <li class="nav-item"><a class="nav-link" *ngIf="authService.loggedIn()" routerLink="/profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
-      <li class="nav-item"><a class="nav-link" *ngIf="authService.loggedIn()" routerLink="/blog" href="#"><span class="glyphicon glyphicon-user"></span> Blog</a></li>
-      <li class="nav-item"><a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li class="nav-item"><a style="cursor: pointer;" class="nav-link" *ngIf="authService.loggedIn()" (click)="onClickLogout()"><span class="glyphicon glyphicon-off" ></span> LogOut</a></li>
-      <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]='[active]' [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/register"><span class=" glyphicon glyphicon-eye-open"></span> Register</a></li>
-    </ul>
+<div class="listCrt example-container">
+      <div class="row show-hide-message">
+        <div [ngClass]="messageClass">
+          {{message}}
+        </div>
+      </div>
+  <h2 mat-dialog-title class="title"> CART ITEM's </h2>  <button mat-raised-button color="warn" >Total Item: {{totalItem}}</button>
+  <hr>
+  <mat-card-content>
+    <mat-grid-list cols="1" rowHeight="3:1">
+      <mat-grid-tile *ngFor="let item of cartItemList ">
+        <img (click)="openDialog(item)" class="imageClass" src="{{item.image_path}}">
+        <mat-grid-tile-footer>
+          <h3 mat-line>{{item.name}}</h3>
+          <span mat-line>Price: {{item.price}}</span>
+          <span mat-line>Price: {{item.description}}</span>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-card-content>
+  <div class="payment-btn">
+    <mat-dialog-actions>
+      <button mat-raised-button color="warn" >Total Price:Rs.{{totalPrice ?  totalPrice : '00:00'}}</button>
+      <button mat-raised-button class="checkbtn" (click)="paymentForItem(cartItemList)">Proceed to Payment </button>
 
-  </div> -->
-</nav>
-
+    </mat-dialog-actions>
+  </div>
+</div>

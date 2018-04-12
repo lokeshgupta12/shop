@@ -8,6 +8,7 @@ const addCartSchema = new Schema({
     name: { type: String, required: true  },
     description: { type: String, required: true  },
     price: { type: Number },
+    pid: { type: String, required: true  },
     image_path: {type: String}
 
 })

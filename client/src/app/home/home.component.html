@@ -6,7 +6,7 @@
         <mat-grid-tile-footer>
           <h3 mat-line>{{item.name}}</h3>
           <span mat-line>Price: {{item.price}}</span>
-          <button mat-raised-button class="addcrtBtn"  (click)="addtoCart(item)" name="action">{{cartItems.indexOf(item._id)>=0? 'Added' :'Add to cart'}}</button>
+          <button mat-raised-button class="addcrtBtn"  (click)="addtoCart(item)" name="action">{{isAdded(item)? 'Added' :'Add to cart'}}</button>
         </mat-grid-tile-footer>
       </mat-grid-tile>
     </mat-grid-list>

@@ -19,10 +19,8 @@ export class CartService {
 
   }    
   addItem(e){
-    if(e && e.length>0) {
       this.data = e;
       this.observer.next(this.data);
-    }
   }
 
   addToCart(item:any) {

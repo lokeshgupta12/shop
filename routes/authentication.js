@@ -61,7 +61,8 @@ module.exports = (router) => {
                 name: req.body.name,
                 description: req.body.description,
                 image_path: req.body.image_path,
-                price: req.body.price
+                price: req.body.price,
+                pid: req.body._id
             });
             cartItem.save((err) => {
                 if (err) {
@@ -97,6 +98,8 @@ module.exports = (router) => {
         }
     });
 
+    // get addes cart items
+
     router.get('/getAddedCartItem', (req, res) => {
         AddCartlist.find({}, (err, items) => {
             if (err) {
@@ -124,21 +127,21 @@ module.exports = (router) => {
                 } else {
                     if (!items) {
                         res.json({ success: false, message: ' item not found!' })
-                    } else { 
-                    res.json({ success: true, message: ' Item removed!' })
+                    } else {
+                        res.json({ success: true, message: ' Item removed!' })
 
                     }
                 }
             })
         }
     })
-// save payment data in database
+    // save payment data in database
 
-        router.post('/paymentItem', (req, res) => {
+    router.post('/paymentItem', (req, res) => {
         if (!req.body) {
             res.json({ success: false, message: ' There is not any Item' })
         } else {
-                     console.log(req.body,"pay")
+            console.log(req.body, "pay")
 
             const order = new orders({
                 created: new Date(),

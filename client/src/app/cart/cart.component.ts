@@ -35,22 +35,16 @@ message;
 
   ngOnInit() {
        this.authService.getCartItems().subscribe(data=>{
-                  console.log()
                   this.cartItemList = data.items;
                   this.totalItem = this.cartItemList.length > 0 ? this.cartItemList.length  : "No Item";
-          for(let i=0; i <  this.cartItemList.length ;i++){
-                this.cartService.addToCart(data.items[i]._id);
-               if(this.cartItemList.length >0 ){
-                  this.totalPrice  =   this.totalPrice  + this.cartItemList[i].price;
-                 // console.log(this.totalPrice,"price")
-                  }
-                }  
+                  this.cartItemList.forEach(e=>{
+                        this.totalPrice  =   this.totalPrice  + e.price;
+                  });
               })
   }
 
 
 paymentForItem(item){
-  console.log(item,"ascdds")
           this.authService.paymentItem(item.map(e=>e._id)).subscribe(data=>{
           if(!data.success){
                 this.messageClass = 'alert alert-danger';

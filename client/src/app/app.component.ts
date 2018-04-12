@@ -20,6 +20,13 @@ constructor( public authService :AuthService,  public  router :Router, private c
     });
 }
 ngOnInit(){	
+
+  this.authService.getCartItems().subscribe(data=>{
+                  let dat = data.items;
+                  dat = dat.map(e=>e.pid);
+                  this.cartItems = dat;
+                  this.cartService.addItem(dat);
+              })
 }
 
 

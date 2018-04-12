@@ -21,12 +21,9 @@ message;cartItemList=[]
   cartItems = [];
 
   constructor(public authService: AuthService  , public router :Router, public thisDialogRef : MatDialogRef<DialogitemComponent>,@Inject(MAT_DIALOG_DATA) public data:Array<DialogitemComponent>, private cartService:CartService) { 
-    console.log(data);
      this.cartItems = this.cartService.data;
-     console.log(this.cartItems);
     this.cartService.getCartItem().subscribe(e=>{
       this.cartItems=e;
-      console.log(e);
     });
   }
 

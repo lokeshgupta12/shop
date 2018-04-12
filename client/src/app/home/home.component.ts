@@ -16,16 +16,17 @@ export class HomeComponent implements OnInit {
 dialogResult="";
 cartItems= [];
   constructor(public authService: AuthService, public dialog:MatDialog, private cartService:CartService) {
-
       this.cartItems = this.cartService.data;
-         console.log(this.cartItems);
+         console.log(this.cartItems, 'home');
         this.cartService.getCartItem().subscribe(e=>{
           this.cartItems=e;
-          console.log(e);
+          console.log(this.cartItems, 'home');
         });
-
-
    }
+
+  isAdded(item) {
+    return this.cartItems.indexOf(item._id)>=0
+  }
 	
 
 
